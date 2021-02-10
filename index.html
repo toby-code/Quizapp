@@ -12,25 +12,36 @@
 
     <link rel="stylesheet" href="style/style.css">
 
+    <script type="text/javascript" src="script/game.js"></script>
+
+    <script type="text/javascript" src="script/europe.js"></script>
+
     <title>Document</title>
 
 </head>
 
-<body>
+<body onload="nextQuestion()">
 
     <h1>Hauptstadt Quiz</h1>
 
     <div class="card">
-        <div class="card-body">
-            Wie heißt die Hauptstadt von Deutschland?
+        <div class="card-body" id="question">
+            
         </div>
     </div>
 
+    <div class="alert alert-success" role="alert">
+        Deine Antwort war richtig!
+      </div>
+      <div class="alert alert-danger" role="alert">
+        Deine Antwort war leider falsch!
+      </div>
+
     <div class="mt-4">
-        <button class="btn btn-primary">Antwort A</button>
-        <button class="btn btn-primary">Antwort B</button>
-        <button class="btn btn-primary">Antwort C</button>
-        <button class="btn btn-primary">Antwort D</button>
+        <button class="btn btn-primary" id="answerA" onclick="answer('answerA')"></button>
+        <button class="btn btn-primary" id="answerB" onclick="answer('answerB')"></button>
+        <button class="btn btn-primary" id="answerC" onclick="answer('answerC')"></button>
+        <button class="btn btn-primary" id="answerD" onclick="answer('answerD')"></button>
     </div>
 
 </body>

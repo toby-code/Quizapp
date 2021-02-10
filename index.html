@@ -22,27 +22,52 @@
 
 <body onload="nextQuestion()">
 
+    <nav class="navbar navbar-light bg-light navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/question-mark-31190_1280.png" alt="Logo" class="d-inline-block">
+                Hauptstadt Quiz
+            </a>
+        </div>
+    </nav>
+
     <h1>Hauptstadt Quiz</h1>
 
     <div class="card">
         <div class="card-body" id="question">
-            
+
         </div>
     </div>
 
-    <div class="alert alert-success" role="alert">
+    <div class="alert alert-success d-none" role="alert">
         Deine Antwort war richtig!
-      </div>
-      <div class="alert alert-danger" role="alert">
+    </div>
+
+    <div class="alert alert-danger d-none" role="alert">
         Deine Antwort war leider falsch!
-      </div>
+    </div>
 
     <div class="mt-4">
-        <button class="btn btn-primary" id="answerA" onclick="answer('answerA')"></button>
-        <button class="btn btn-primary" id="answerB" onclick="answer('answerB')"></button>
-        <button class="btn btn-primary" id="answerC" onclick="answer('answerC')"></button>
-        <button class="btn btn-primary" id="answerD" onclick="answer('answerD')"></button>
+        <button class="btn btn-outline-primary" id="answerA" onclick="answer('answerA')"></button>
+        <button class="btn btn-outline-primary" id="answerB" onclick="answer('answerB')"></button>
+        <button class="btn btn-outline-primary" id="answerC" onclick="answer('answerC')"></button>
+        <button class="btn btn-outline-primary" id="answerD" onclick="answer('answerD')"></button>
     </div>
+
+    <div class="mt-4">
+
+        <button onclick="nextQuestion()" class="btn btn-info d-none">Nächste Frage</button>
+
+    </div>
+
+    <footer class="bg-light text-center text-lg-start">
+        <!-- Copyright -->
+        <div class="text-center p-3 bg-dark footer-custom">
+            © 2020 Copyright:
+            <a class="link-secondary" href="https://developerakademie.com/" target="_blank">Developer Akademie</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
 
 </body>
 

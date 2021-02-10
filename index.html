@@ -25,7 +25,7 @@
     <nav class="navbar navbar-light bg-light navbar-custom">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
-                <img src="img/question-mark-31190_1280.png" alt="Logo" class="d-inline-block">
+                <img src="img/question.png" alt="Logo" class="d-inline-block">
                 Hauptstadt Quiz
             </a>
         </div>
@@ -33,34 +33,50 @@
 
     <h1>Hauptstadt Quiz</h1>
 
-    <div class="card">
-        <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: 25%"></div>
-          </div>
+    <div class="quiz-finish-container d-none">
 
-        <div class="card-body" id="question">
+        <h2>Glückwunsch, du hast das Quiz erfolgreich abgeschlossen!</h2>
+
+        <img src="img/fireworks.jpg" alt="Fireworks">
+
+    </div>
+
+    <div class="quiz-container">
+
+        <div class="card">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 25%"></div>
+            </div>
+
+            <div class="card-body" id="question">
+
+            </div>
+        </div>
+
+        <div class="alert alert-success d-none" role="alert">
+            Deine Antwort war richtig!
+        </div>
+
+        <div class="alert alert-danger d-none" role="alert">
+            Deine Antwort war leider falsch!
+        </div>
+
+        <div class="mt-4">
+            <div class="quiz-answer-row mt-4">
+                <button class="btn btn-outline-primary" id="answerA" onclick="answer('answerA')"></button>
+                <button class="btn btn-outline-primary" id="answerB" onclick="answer('answerB')"></button>
+            </div>
+            <div class="quiz-answer-row mt-4">
+                <button class="btn btn-outline-primary" id="answerC" onclick="answer('answerC')"></button>
+                <button class="btn btn-outline-primary" id="answerD" onclick="answer('answerD')"></button>
+            </div>
+        </div>
+
+        <div class="mt-4">
+
+            <button onclick="nextQuestion()" class="btn btn-info d-none">Nächste Frage</button>
 
         </div>
-    </div>
-
-    <div class="alert alert-success d-none" role="alert">
-        Deine Antwort war richtig!
-    </div>
-
-    <div class="alert alert-danger d-none" role="alert">
-        Deine Antwort war leider falsch!
-    </div>
-
-    <div class="mt-4">
-        <button class="btn btn-outline-primary" id="answerA" onclick="answer('answerA')"></button>
-        <button class="btn btn-outline-primary" id="answerB" onclick="answer('answerB')"></button>
-        <button class="btn btn-outline-primary" id="answerC" onclick="answer('answerC')"></button>
-        <button class="btn btn-outline-primary" id="answerD" onclick="answer('answerD')"></button>
-    </div>
-
-    <div class="mt-4">
-
-        <button onclick="nextQuestion()" class="btn btn-info d-none">Nächste Frage</button>
 
     </div>
 

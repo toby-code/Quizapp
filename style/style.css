@@ -27,3 +27,22 @@ body {
     bottom: 0;
     color: white;
 }
+
+.quiz-answer-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.quiz-answer-row button {
+    width: 40%;
+    height: 80px;
+}
+
+.quiz-finish-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}

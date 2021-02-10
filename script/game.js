@@ -12,15 +12,14 @@ let arr = [];
  * If all random numbers are taken alert will be displayed.
  */
 function getRandoms() {
-    if(arr.length < 1) {
-        while(arr.length < qAndA.length){
+    if (arr.length < 1) {
+        while (arr.length < qAndA.length) {
             var r = Math.floor(Math.random() * qAndA.length);
-            if(arr.indexOf(r) === -1) arr.push(r);
+            if (arr.indexOf(r) === -1) arr.push(r);
         }
     }
     count = arr[countRandom];
-    if(countRandom == qAndA.length) {
-        alert('Quiz abgeschlossen!');
+    if (countRandom == qAndA.length) {
         count = 0;
     }
     countRandom++;
@@ -28,16 +27,31 @@ function getRandoms() {
 
 /**
  * Counts questions and displays question.
+ * @function finishQuiz
  * @function getProgress
  * @function getRandoms
  * @function getQandA
+ * @function resetAlerts
  */
 function nextQuestion() {
-    countQuestion++;
-    getProgress();
-    getRandoms();
-    getQandA();
+    resetAlerts();
+    if (countQuestion == qAndA.length) {
+        finishQuiz();
+    } else {
+        countQuestion++;
+        getProgress();
+        getRandoms();
+        getQandA();
+    }
+}
+
+/**
+ * Hides next question button and alert of right or wrong answer.
+ */
+function resetAlerts() {
     document.querySelector('.btn-info').classList.add('d-none');
+    document.querySelector('.alert-danger').classList.add('d-none');
+    document.querySelector('.alert-success').classList.add('d-none');
 }
 
 /**
@@ -46,7 +60,7 @@ function nextQuestion() {
 function getProgress() {
     let progressBar = document.querySelector('.progress-bar');
     progress = countQuestion * 100 / qAndA.length;
-    progress = Math.round(progress); 
+    progress = Math.round(progress);
     progressBar.style.width = `${progress}%`;
     progressBar.innerHTML = `${progress}%`;
 
@@ -56,7 +70,7 @@ function getProgress() {
  * Loads data from json and displays question and possible answers.
  */
 function getQandA() {
-    document.querySelector('#question').innerHTML = `${qAndA[count].question} ${qAndA[count].country}`;
+    document.querySelector('#question').innerHTML = `${qAndA[count].question} ${qAndA[count].country}?`;
     document.querySelector('#answerA').innerHTML = `${qAndA[count].answerA}`;
     document.querySelector('#answerB').innerHTML = `${qAndA[count].answerB}`;
     document.querySelector('#answerC').innerHTML = `${qAndA[count].answerC}`;
@@ -70,7 +84,7 @@ function getQandA() {
  */
 function answer(a) {
     let chosenAnswer = document.querySelector(`#${a}`);
-    if(chosenAnswer.innerHTML == qAndA[count].correctAnswer) {
+    if (chosenAnswer.innerHTML == qAndA[count].correctAnswer) {
         document.querySelector('.alert-danger').classList.add('d-none');
         document.querySelector('.alert-success').classList.remove('d-none');
         document.querySelector('.btn-info').classList.remove('d-none');
@@ -78,4 +92,12 @@ function answer(a) {
         document.querySelector('.alert-success').classList.add('d-none');
         document.querySelector('.alert-danger').classList.remove('d-none');
     }
+}
+
+/**
+ * Show success message and hide quiz container.
+ */
+function finishQuiz() {
+    document.querySelector('.quiz-finish-container').classList.remove('d-none');
+    document.querySelector('.quiz-container').classList.add('d-none');
 }

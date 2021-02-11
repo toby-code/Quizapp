@@ -9,7 +9,6 @@ let arr = [];
  * Generates random numbers and saves it in array 'arr'.
  * Every number is generated only once.
  * The number of generated numbers is equal to the json 'qAndA' length.
- * If all random numbers are taken alert will be displayed.
  */
 function getRandoms() {
     if (arr.length < 1) {
